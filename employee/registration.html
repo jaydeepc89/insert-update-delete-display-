@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>EMP</title>
+	<link rel="stylesheet" type="text/css" href="bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+<!--<script type="text/javascript">
+//var zipcode= document.getElementById('zipcode').value;
+function checknum()
+{
+  if(zipcode.length != 6) {
+     alert("Zip Code Must Be 6 Digit");
+     return false;
+   }
+  }
+     </script>-->
+<script type="text/javascript">
+	 function checkNum()
+	 {
+	 	if ((event.keyCode > 64 && event.keyCode < 91) || (event.keyCode > 96 && event.keyCode < 123) || event.keyCode == 8)
+	 	{
+	 		return true;
+	 	}
+	 	else
+	 		 {
+      				alert("Accept only char Value");
+      				return false;
+      		 }
+      }
+      
+</script>
+</head>
+  
+<body style="background: #006666;color:white">
+
+	<div class="container">
+	<div class="row">
+			
+			<h3 class=" text-center " style="letter-spacing: 4px;"><b>Employee Registration</b></b> </h3>
+				<hr>
+
+	   <div class="col-md-8 col-md-offset-2 ">
+			
+      <form action="process.php" method="post" onsubmit="return validation();" autocomplete="off">
+       
+       <div class="row" style="background-color:#001111;box-shadow: 2px 15px 50px rgba(0,0,0,0.5); border:2px;border-radius: 10px;padding: 10px;">
+        <!--<p><span class = "error" style="font-size:20px;color:red"> &nbsp <mark style="color: red">* Required field.</mark></span></p>-->
+			
+        <!--Name-->
+
+        <div class="form-group col-md-6">
+    			<label for="fname" style="color: white ;letter-spacing: 4px;" >Name:</label>
+    			<span id="fname" style="color:red;">*</span>
+    			<input type="text" class="form-control" id="name" name="name" onkeypress="return checkNum()" required>
+      </div>
+
+        <!--Name-->
+
+  			<div class="form-group col-md-6">
+    			<label for="femail" style="color: white ;letter-spacing: 4px;">E-mail:</label><span id="femail" style="color:red;">*</span> 
+    			<input type="email" class="form-control" id="email" name="email" required>
+          
+  			</div>
+
+        <!--Name-->
+
+  			<div class="form-group col-md-6">
+    			<label for="fmobile" style="color: white ;letter-spacing: 4px;">Mobile:</label>
+    			<span id="fmobile" style="color:red;">*</span>
+    			<input type="tel" maxlength="10" class="form-control" id="mobile" name="mobile" required>
+  			</div>
+
+        <!--Name-->
+
+  			<div class="form-group col-md-6">
+    			<label for="address" style="color: white ;letter-spacing: 4px;">Address:</label>
+    			<span id="faddress" style="color: red;">*</span>
+
+    			<textarea class="form-control" rows="2" id="address" name="address" required></textarea>
+        </div>
+
+        <!--Name-->
+
+  			<div class="form-group col-md-6">
+    		<label for="gender" style="color: white ;letter-spacing: 4px;">Gender:</label>
+        <span id="fgender" style="color:red">*</span><br>
+    		<input type="radio" name="gender" id="male" value="male" required>&nbsp;Male&nbsp;
+    		<input type="radio" name="gender" id="female" value="female" required>&nbsp;Female&nbsp;&nbsp;&nbsp;
+
+        	
+        	<!--<select name="gender" id="gender"class="form-control text-primary" >
+          <option >Select</option>
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+          <option value="other">Other</option>
+        </select>-->
+        </div>
+
+        
+
+
+
+  			<div class="form-group col-md-6">
+          <label style="color: white ;letter-spacing: 4px;">Education:</label>
+    		  <span id="feducation" style="color: red">*</span>
+    		  <select name="education" class="form-control" id="education">
+    			 <option required disabled selected>Select</option>
+    			 <option value="mca">MCA</option>
+    			 <option value="bca">BCA</option>
+    			 <option value="be">BE</option>
+    		  </select>
+  			</div>
+
+			<!--Password-->
+		     <div class="form-group col-md-6">
+    			<label for="password" style="color: white ;letter-spacing: 4px;">Password:</label>
+          <span id="fpassword" style="color: red">*</span>
+    			<input type="password" class="form-control" id="password" name="password" >
+  			  <span id="fpassword" style="color: red"></span>
+        	</div>
+
+        	<!--Comfirm Password-->
+        	<div class="form-group col-md-6">
+    			 <label for="confirmpassword" style="color: white ;letter-spacing: 4px;">ConfirmPassword:</label>
+    			 <span id="fconfirmpassword" style="color: red">*</span>
+    			 <input type="password" class="form-control" id="confirmpassword" name="confirmpassword" >
+  			   <span id="fconfirmpassword" style="color:red"></span>
+        	</div>
+
+        <!--Hobby-->
+	       <div class="form-group col-md-12">
+    			<label style="color: white ;letter-spacing: 4px;">Hobby:</label>
+    			<span id="check" style="color:red;">*</span><br/>
+    			<input type="checkbox"  id="hobby" name="hobby[]" value="reading" >&nbsp;Reading&nbsp;&nbsp;&nbsp;
+    			<input type="checkbox"  id="hobby" name="hobby[]" value="cricket" >&nbsp;Cricket&nbsp;&nbsp;&nbsp;
+    			<input type="checkbox"  id="hobby" name="hobby[]" value="swiming" >&nbsp;Swiming&nbsp;&nbsp;&nbsp;
+    		</div>  			
+
+         <!--Submit Button-->
+
+        <div class="form-group col-md-12 text-center">
+        	<input type="submit" class="btn btn-primary" style="border-radius:10px" 
+          name="submit" onclick="submit"> &nbsp
+         	<!--<button type="submit" class="btn btn-danger"  style="border-radius:15px" name="display"href="select.php">Employee Detail</button>-->
+        </div>
+        <div class="form-group col-md-12 text-center">
+          <p>I have Already An Account&nbsp;<a href="index.php" style="text-decoration: underline;">LogIn</a></p>
+        </div>
+    </form>
+  </div>
+</div>
+</div>
+
+<script type="text/javascript">
+    
+    function validation()
+    {
+
+      var name = document.getElementById('name').value;
+      var email = document.getElementById('email').value;
+      var mobile= document.getElementById('mobile').value;
+      var address=document.getElementById('address').value;
+     // var department=document.getElementById('dept').value;
+      // var hobby=document.getElementById('hobby').value;
+     var password=document.getElementById('password').value;
+     var conpassword=document.getElementById('confirmpassword').value;
+      
+      
+
+	  // Name Validate
+
+      if(name == "")
+      {
+      	alert("Enter Your Name");
+        // document.getElementById('fname').innerHTML =" ** Please fill the name field";
+        return false;
+      if(isnum(name))
+      {
+      	alert("Only Accept Character Value");
+        //document.getElementById('fmobile').innerHTML =" ** user must write digits only not characters";
+        return false;
+      }  
+      }
+      if((name.length <= 2) || (name.length > 20)) 
+      {
+      	alert("Name  Must be more than 2 character");
+	    //document.getElementById('fname').innerHTML =" **lenght must be between 2 and 30";
+        return false; 
+      }
+      if(!isNaN(name))
+      {
+      	alert("Number are not Allow");
+        //document.getElementById('fname').innerHTML =" ** only characters are allowed";
+        return false;
+      }
+
+      //Email Validate
+
+      if(email == "")
+      {
+      	alert("Plz Enter Your Mail Id");
+        //document.getElementById('femail').innerHTML =" ** Please fill the email proper";
+        return false;
+      }
+      if(email.indexOf('@') <= 0 )
+      {
+      	alert("plz declare @ & .com char");
+        //document.getElementById('femail').innerHTML =" ** @ Invalid Position";
+        return false;
+      }
+
+      if((email.charAt(email.length-4)!='.') && (email.charAt(email.length-3)!='.'))
+      {
+      	alert("Invalid Email id");
+       // document.getElementById('femail').innerHTML =" ** . Invalid Position";
+        return false;
+      }
+	
+	  //Mobile Number
+
+      if(mobile == "")
+      {
+        alert("Enter Your 10 Digir Mobile Number Here");
+        //document.getElementById('fmobile').innerHTML =" ** Please fill the mobile NUmber field";
+        return false;
+      }
+      if(isNaN(mobile))
+      {
+      	alert("Only accept Number/Digit Value");
+        //document.getElementById('fmobile').innerHTML =" ** user must write digits only not characters";
+        return false;
+      }
+      if(mobile.length!=10)
+      {
+      	alert("Number Most Be In 10 Digit");
+        //document.getElementById('fmobile').innerHTML =" ** Mobile Number must be 10 digits only";
+        return false;
+      }
+
+      //address 
+	  if((address.length <= 5) || (address.length > 40))
+      {
+      	alert("Address should be More than 5 char");
+      	//document.getElementById('faddress').innerHTML="** address must be more than 5 char";
+      	return false;
+      }
+
+      //gender
+		//if ((gender[0].checked == "") && (gender[1].checked==""))
+        //{
+          //  alert("Gender is required");
+            //fgender.focus();
+            // return false;	
+        //}
+		// var o = document.getElementById('male');
+		// var t = document.getElementById('female');
+
+		if ( (male.checked == false ) && (female.checked == false ) )
+		{
+			alert("Select any gender");
+			//document.getElementById('gender').innerHTML =" ** select gender";
+			return false;
+		}
+        
+        //education
+		if (education.selectedIndex < 1)                  
+      	{ 
+        	alert("Please select your Education."); 
+     	   	feducation.focus(); 
+        	return false; 
+      	}
+		
+		//password 
+      	if (password == "")                        
+   		{ 
+        	alert("Please enter your password"); 
+        	fpassword.focus(); 
+        	return false; 
+    	} 
+    	if(password.length <= 5)
+    	{
+    	 	alert("Password length short");
+    	 	fpassword.focus();
+    	 	return false;
+    	}
+
+   	 	if(conpassword=="")
+   	 	{
+   	 		alert("Please enter conpassword");
+   	 		return false;	
+   	 	}
+   	 	else if(password!=conpassword)
+   	 	{
+   	 		alert("Password not match");
+   	 		return false;
+   	 	}
+   	 	else if(conpassword=="")
+   	 	{
+   	 		alert("Please Fill The Password");
+   	 		return false;
+   	 	}
+
+    	  //var password = document.getElementById("1stPassword").value;
+           //var confirmPassword = document.getElementById("ConfirmPassword").value;
+           // if (password != confirmpassword) 
+            //{
+              //  alert("You first Passwords is not similar with 2nd password. Please enter same password in both");
+                //return false;
+           // }
+
+
+    	 //confirmpassword
+
+
+        //if (fpassword != confirmpassword) 
+        //{
+          //  alert("comfirmpassword not declared.");
+            //fconfirmpassword.focus();
+           // return false;
+        //}
+
+	   //hobby
+
+       if ( (hobby[0].checked == "" ) && ( hobby[1].checked == "" ) && ( hobby[2].checked == "" ) ) 
+	  	{		
+	  		alert("select your hobby");
+			 check.focus();
+			return false;
+	  	}
+	}
+	</script>
+</body>
+</html>
+
+
+
+
+
+

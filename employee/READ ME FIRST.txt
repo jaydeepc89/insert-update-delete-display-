@@ -1,0 +1,1 @@
+create a database in php myadmin with name employee and import sql file
